@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <title>Home Page</title>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html"><img class="logo" src="assets/logo.png" alt="Logo"></a>
+      <ul>
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li><a href="" class="nav-link">Products</a></li>
+        <li><a href="" class="nav-link">Story</a></li>
+        <li><a href="" class="nav-link">Cart</a></li>
+      </ul>
+      <img class="burger" src="assets/burger menu.svg" alt="">
+    </nav>
+  </header>
+
+  <main>
+    <section class="section_1">
+      <video id="heroVideo"
+             src="assets/strawberry video.mp4"
+             preload="auto"
+             playsinline
+             muted
+             crossorigin="anonymous">
+      </video>
+      <div class="hero_inside">
+        <div class="pasture">
+          PASTURE
+          <img src="assets/line.svg" alt="">
+        </div>
+        <h1>PURE HARVEST</h1>
+        <button>LEARN MORE</button>
+        <div class="orchard">
+          <img src="assets/line.svg" alt="">
+          ORCHARD
+        </div>
+      </div>
+      <div class="sec1_overlay"></div>
+    </section>
+
+    <section class="section_2">
+      <div class="titles">
+        <h2>CATEGORIES</h2>
+        <h3>What We Offer</h3>
+      </div>
+      <div class="categories-wrapper">
+        <button class="category-nav category-nav--prev" aria-label="Previous category" type="button">
+          <img src="assets/arrow.png" alt="Previous category">
+        </button>
+        <div class="categories-window">
+      <div class="category-card category_1 is-active">
+        <h1>FRUITS</h1>
+        <model-viewer src="assets/apple_scan_lowpoly.glb" ar ar-modes="scene-viewer webxr quick-look" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="1" camera-orbit="-574.2deg 61.2deg 1.218m" field-of-view="30deg" auto-rotate>
+            <div class="progress-bar hide" slot="progress-bar">
+                <div class="update-bar"></div>
+            </div>
+        </model-viewer>
+        <img src="assets/leaf.png" alt="">
+        <img src="assets/leaf.png" alt="">
+        <img src="assets/leaf.png" alt="">
+        <img src="assets/leaf.png" alt="">
+        <img src="assets/seeds.png" alt="">
+        <img src="assets/seeds.png" alt="">
+        <img src="assets/quarter_apple.png" alt="">
+        <img src="assets/half_apple.png" alt="">
+      </div>
+
+      <div class="category-card category_2">
+        <h1>VEGETABLES</h1>
+        <model-viewer src="assets/cabbage.glb" ar ar-modes="scene-viewer webxr quick-look" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="1" camera-orbit="-1056deg 84.16deg 0.3919m" field-of-view="30deg" auto-rotate>
+          <div class="progress-bar hide" slot="progress-bar">
+              <div class="update-bar"></div>
+          </div>
+      </model-viewer>
+      <img src="assets/leaf.png" alt="">
+      <img src="assets/leaf.png" alt="">
+      <img src="assets/leaf.png" alt="">
+      <img src="assets/lettuce.png" alt="">
+      <img src="assets/shredded2.png" alt="">
+      <img src="assets/shredded1.png" alt="">
+      </div>
+
+      <div class="category-card category_3">
+        <h1>DAIRY</h1>
+        <model-viewer src="assets/lowpoly_milk.glb" ar ar-modes="scene-viewer webxr quick-look" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="1" camera-orbit="-1166deg 81.61deg 51.05m" field-of-view="30deg" auto-rotate>
+          <div class="progress-bar hide" slot="progress-bar">
+              <div class="update-bar"></div>
+          </div>
+      </model-viewer>
+
+      <img src="assets/milk splash.png" alt="">
+      <img src="assets/cheese1.png" alt="">
+      <img src="assets/cheese_slice1.png" alt="">
+      <img src="assets/milk drops.png" alt="">
+      <img src="assets/cheese1.png" alt="">
+      <img src="assets/cheese_slice2.png" alt="">
+      <img src="assets/drop.png" alt="">
+      </div>
+        </div>
+        <button class="category-nav category-nav--next" aria-label="Next category" type="button">
+          <img src="assets/arrow.png" alt="Next category">
+        </button>
+      </div>
+    </section>
+
+    <section class="section_3">
+      <h1>Our Positive Impact Since 2021</h1>
+      <div class="sec3_bottom">
+        <p>* Impact figures are based on internal supply chain tracking and verified through regional agricultural reporting partners.</p>
+        <div class="sec3_bottom_numbs">
+          <div class="numbers"><h4>142M</h4>
+          <p>pieces of fresh produce rescued and delivered at peak freshness.</p>
+          </div>
+          <div class="numbers"><h4>3,200+</h4>
+          <p>local farmers supported through fair-price partnerships.</p>
+          </div>
+          <div class="numbers"><h4>5.4B</h4>
+          <p>liters of water saved through efficient irrigation and smart sourcing.</p>
+          </div>
+        </div>
+      </div>
+      </section>
+    
+      <section class="section_4">
+      <div class="titles">
+        <h2>CATEGORIES</h2>
+        <h3>What We Offer</h3>
+      </div>
+      <div class="sec4_cards_holder">
+        <div class="sec4_card">
+          <div class="sec4_3dwrapper"><model-viewer src="assets/single_strawberry.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="1" camera-orbit="113.1deg 143.9deg 1.184m" field-of-view="30deg" auto-rotate>
+          <div class="progress-bar hide" slot="progress-bar">
+              <div class="update-bar"></div>
+          </div>
+          </model-viewer></div>
+          <div class="sec4_card_text">
+            <h4>Fresh Strawberries</h4>
+            <p>Juicy, ruby-red sweetness.</p>
+            <p>EGP 45 / box</p>
+          </div>
+          <button>View in 3D</button>
+        </div>
+
+        <div class="sec4_card">
+          <div class="sec4_3dwrapper"><model-viewer src="assets/cabbage.glb" ar ar-modes="scene-viewer webxr quick-look" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="1" camera-orbit="-1056deg 84.16deg 0.3919m" field-of-view="30deg" auto-rotate>
+          <div class="progress-bar hide" slot="progress-bar">
+              <div class="update-bar"></div>
+          </div>
+        </model-viewer></div>
+          <div class="sec4_card_text">
+            <h4>Organic Lettuce</h4>
+            <p>Bright, crisp, full of life.</p>
+            <p>EGP 30 / head</p>
+          </div>
+          <button>View in 3D</button>
+        </div>
+
+        <div class="sec4_card">
+          <div class="sec4_3dwrapper"><model-viewer src="assets/lowpoly_milk.glb" ar ar-modes="scene-viewer webxr quick-look" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="1" camera-orbit="-1166deg 81.61deg 51.05m" field-of-view="30deg" auto-rotate>
+          <div class="progress-bar hide" slot="progress-bar">
+              <div class="update-bar"></div>
+          </div>
+        </model-viewer></div>
+          <div class="sec4_card_text">
+            <h4>Farm Fresh Milk</h4>
+            <p>Creamy, pure, naturally rich.</p>
+            <p>EGP 55 / L</p>
+          </div>
+          <button>View in 3D</button>
+        </div>
+      </section>
+
+      <section class="section_5">
+        <div class="titles red">
+        <h2>CATEGORIES</h2>
+        <h3>What We Offer</h3>
+      </div>
+        
+        <img src="assets/treebranch.png" alt="">
+        <div class="sec5_cards_wrapper">
+          <div class="sec5_card">
+            <img src="assets/sec5_leaf.png" alt="">
+            <h4>Grown with Care</h4>
+            <p>Every item begins with soil, sunlight, and people who respect both.</p>
+          </div>
+
+          <div class="sec5_card">
+            <img src="assets/search.png" alt="">
+            <h4>What You See Is What You Get </h4>
+            <p>No filters. No staging. Just the real thing — in 3D.</p>
+          </div>
+
+          <div class="sec5_card">
+            <img src="assets/truck.png" alt="">
+            <h4>Delivered the Gentle Way</h4>
+            <p>Freshness protected every step of the journey.</p>
+          </div>
+
+          <div class="sec5_card">
+            <img src="assets/recycle.png" alt="">
+            <h4>Harvested Responsibly</h4>
+            <p>We choose partners who nurture the land, not exhaust it.</p>
+          </div>
+        </div>
+        <img src="assets/treebranch.png" alt="">
+      </section>
+
+      <section class="section_6">
+        <div class="titles white">
+        <h2>WHAT OUR CUSTOMERS ARE SAYING</h2>
+        <h3>HEAR FROM OUR SATISFIED CUSTOMERS</h3>
+      </div>
+
+      <div class="testimonials">
+        <div class="testimonial_content">
+          <div class="testimonial_quotes">
+            <div class="testimonial_quote active">
+              <p>"Feels like farm-to-table in my own kitchen. So clean, crisp."</p>
+            </div>
+            <div class="testimonial_quote">
+              <p>"The quality is outstanding. Every bite reminds me."</p>
+            </div>
+            <div class="testimonial_quote">
+              <p>"Best produce I've ever had delivered. Fresh, flavorful!"</p>
+            </div>
+            <div class="testimonial_quote">
+              <p>"My family loves the variety and freshness. This has completely."</p>
+            </div>
+
+            <div class="testimonial_green">
+              <div class="testimonial_author">
+                <strong class="author-name">AMELIA S.</strong>
+                <p class="author-location">Happy Customer, New York</p>
+              </div>
+              <div class="stars">★★★★★</div>
+            </div>
+
+          </div>
+          <div class="testimonial_image_wrapper">
+            <img src="assets/person1.png" alt="Customer testimonial" class="testimonial_img active">
+            <img src="assets/person2.png" alt="Customer testimonial" class="testimonial_img">
+            <img src="assets/person3.png" alt="Customer testimonial" class="testimonial_img">
+            <img src="assets/person4.png" alt="Customer testimonial" class="testimonial_img">
+          </div>
+        </div>
+        <div class="testimonial_dots">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+      </div>
+
+      </section>
+
+      <section class="section_7">
+        <div class="newsletter-content">
+          <img src="assets/logo.png" alt="Pure Harvest Logo" class="newsletter-logo">
+          <h2>Subscribe To Our Newsletter</h2>
+          <p>Get the latest updates, exclusive offers, and healthy recipes delivered to your inbox.</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Your email address" required>
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="">Shop</a>
+      <a href="">Contact</a>
+      <a href="">Privacy Policy</a>
+      <a href="">Terms of Service</a>
+    </div>
+    <div class="footer-social">
+      <a href="" aria-label="Facebook">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        </svg>
+      </a>
+      <a href="" aria-label="Instagram">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+      </a>
+      <a href="" aria-label="Twitter">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+        </svg>
+      </a>
+    </div>
+    <p class="footer-copyright">© 2023 Pure Harvest. All rights reserved.</p>
+  </footer>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script> -->
+<script src="code.js"></script>
+
+</body>
+</html>
