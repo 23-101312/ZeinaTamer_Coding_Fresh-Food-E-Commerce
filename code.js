@@ -12,64 +12,79 @@
 
 // lenis.on('scroll', ScrollTrigger.update)
 
-
 gsap.registerPlugin(ScrollTrigger);
 
-const section = document.querySelector('.section_1');
-const video = document.getElementById('heroVideo');
 
-function warmUp() {
-  try {
-    video.play().then(() => video.pause());
-  } catch (e) {}
-}
+const video = document.getElementById("heroVideo");
 
-function setupScrollScrub() {
-  const duration = video.duration || 0;
-  if (!duration) return;
-  const speed = 1;
-ScrollTrigger.create({
-  trigger: section,
-  start: "top top",
-  end: "bottom top",
-  scrub: true,
-  pin: true,
-  onUpdate: self => {
-    const t = Math.min(video.duration, self.progress * video.duration * speed);
-    if (Math.abs(video.currentTime - t) > 0.03) video.currentTime = t;
-  }
+video.pause();
+
+video.addEventListener("loadedmetadata", () => {
+  const d = video.duration;
+
+  gsap.to(video, {
+    currentTime: d,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".section_1",   
+      start: "top top",
+      end: "+=" + d * 600,     
+      scrub: true,
+      pin: true
+    }
+  });
 });
 
-
-  ScrollTrigger.refresh();
-}
-
-if (video.readyState >= 1) {
-  video.pause();
-  warmUp();
-  setupScrollScrub();
-} else {
-  video.addEventListener('loadedmetadata', () => {
-    video.pause();
-    warmUp();
-    setupScrollScrub();
-  });
-}
 
 const categoryCards = Array.from(document.querySelectorAll('.section_2 .category-card'));
 const prevCategoryBtn = document.querySelector('.category-nav--prev');
 const nextCategoryBtn = document.querySelector('.category-nav--next');
 
+function animateCategoryCard(card) {
+  const elements = card.querySelectorAll("h1, img");
+  gsap.fromTo(
+    elements,
+    {
+      x: 120,
+      y: 60,
+      opacity: 0
+    },
+    {
+      x: 0,
+      y: 0,
+      opacity: 1,
+      duration: 1.2,
+      ease: "power3.out",
+      stagger: 0.08
+    }
+  );
+}
+
+ScrollTrigger.create({
+  trigger: ".section_2",
+  start: "top 80%",
+  anticipatePin: 1,
+  onEnter: () => {
+    const activeCard = document.querySelector(".section_2 .category-card.is-active");
+    if (activeCard) {
+      animateCategoryCard(activeCard);
+    }
+  }
+});
+
 if (categoryCards.length && prevCategoryBtn && nextCategoryBtn) {
   let activeIndex = categoryCards.findIndex(card => card.classList.contains('is-active'));
   if (activeIndex < 0) activeIndex = 0;
 
-  const setActiveCategory = (index) => {
+  const setActiveCategory = (index, animate = false) => {
     categoryCards.forEach((card, idx) => {
       if (idx === index) {
         card.classList.add('is-active');
         card.removeAttribute('aria-hidden');
         card.style.display = '';
+        if (animate) {
+          animateCategoryCard(card);
+        }
       } else {
         card.classList.remove('is-active');
         card.setAttribute('aria-hidden', 'true');
@@ -80,7 +95,7 @@ if (categoryCards.length && prevCategoryBtn && nextCategoryBtn) {
 
   const moveCategory = (direction) => {
     activeIndex = (activeIndex + direction + categoryCards.length) % categoryCards.length;
-    setActiveCategory(activeIndex);
+    setActiveCategory(activeIndex, true);
   };
 
   prevCategoryBtn.addEventListener('click', () => moveCategory(-1));
@@ -89,6 +104,124 @@ if (categoryCards.length && prevCategoryBtn && nextCategoryBtn) {
   setActiveCategory(activeIndex);
 }
 
+const impactNumbers = document.querySelectorAll(".section_3 .numbers h4");
+
+if (impactNumbers.length) {
+  impactNumbers.forEach((el) => {
+    const raw = el.textContent.trim();
+    const match = raw.match(/([\d.,]+)(.*)/);
+    if (!match) return;
+    const numberPart = match[1];
+    const suffixPart = match[2] || "";
+    const hasComma = numberPart.includes(",");
+    const decimalPlaces = (numberPart.split(".")[1] || "").length;
+    const target = parseFloat(numberPart.replace(/,/g, ""));
+    const obj = { value: 0 };
+
+    function formatValue(v) {
+      let n = decimalPlaces ? v.toFixed(decimalPlaces) : Math.floor(v);
+      if (hasComma) {
+        n = Number(n).toLocaleString("en-US", {
+          minimumFractionDigits: decimalPlaces,
+          maximumFractionDigits: decimalPlaces
+        });
+      }
+      return n + suffixPart;
+    }
+
+    el.textContent = formatValue(0);
+
+    gsap.fromTo(
+      obj,
+      { value: 0 },
+      {
+        value: target,
+        duration: 1.5,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".section_3",
+          start: "top 70%",
+          toggleActions: "play reverse play reverse"
+        },
+        onUpdate: () => {
+          el.textContent = formatValue(obj.value);
+        }
+      }
+    );
+  });
+
+  gsap.from(".section_3 h1, .sec3_bottom > p, .sec3_bottom_numbs", {
+    y: 40,
+    opacity: 0,
+    duration: 1,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: ".section_3",
+      start: "top 80%",
+      toggleActions: "play reverse play reverse"
+    }
+  });
+}
+
+const sec4Tl = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".section_4",
+    start: "top 80%",
+    end: "bottom 20%",
+    scrub: 1
+  }
+});
+
+sec4Tl.from(".sec4_card", {
+  y: 80,
+  opacity: 0,
+  stagger: 0.2,
+  duration: 1,
+  ease: "power2.out"
+});
+
+
+const sec5Tl = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".section_5",
+    start: "top 80%",
+    end: "bottom 20%",
+    scrub: 1
+  }
+});
+
+sec5Tl.from(".sec5_card", {
+  y: 80,
+  opacity: 0,
+  stagger: 0.2,
+  duration: 1,
+  ease: "power2.out"
+});
+
+
+gsap.from(".testimonial_content", {
+  opacity: 0,
+  y: 40,
+  duration: 1,
+  ease: "power2.out",
+  scrollTrigger: {
+    trigger: ".section_6",
+    start: "top 80%",
+    toggleActions: "play reverse play reverse"
+  }
+});
+
+gsap.from(".testimonial_dots", {
+  opacity: 0,
+  y: 20,
+  duration: 0.8,
+  ease: "power2.out",
+  scrollTrigger: {
+    trigger: ".section_6",
+    start: "top 85%",
+    toggleActions: "play reverse play reverse"
+  }
+});
 
 
 const newsletterForm = document.querySelector('.newsletter-form');
@@ -142,3 +275,15 @@ if (testimonialQuotes.length > 0 && testimonialImages.length > 0 && testimonialD
 
   showTestimonial(0);
 }
+
+const burger = document.querySelector('.burger');
+const navLinksPanel = document.querySelector('.nav-links');
+
+if (burger && navLinksPanel) {
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('open');
+    navLinksPanel.classList.toggle('open');
+  });
+}
+
+
