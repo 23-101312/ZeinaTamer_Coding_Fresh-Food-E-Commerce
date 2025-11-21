@@ -14,26 +14,36 @@
 
 gsap.registerPlugin(ScrollTrigger);
 
+window.addEventListener("load", () => {
 
 const video = document.getElementById("heroVideo");
 
-video.pause();
+function setupVideoScroll() {
+  if (!video) return;
 
-video.addEventListener("loadedmetadata", () => {
-  const d = video.duration;
+  const d = video.duration || 1;
+  video.pause();
 
   gsap.to(video, {
     currentTime: d,
     ease: "none",
     scrollTrigger: {
-      trigger: ".section_1",   
+      trigger: ".section_1",
       start: "top top",
-      end: "+=" + d * 600,     
+      end: "+=1500", 
       scrub: true,
       pin: true
     }
   });
-});
+}
+
+if (video) {
+  if (video.readyState >= 1) {
+    setupVideoScroll();
+  } else {
+    video.addEventListener("loadedmetadata", setupVideoScroll);
+  }
+}
 
 
 const categoryCards = Array.from(document.querySelectorAll('.section_2 .category-card'));
@@ -276,14 +286,17 @@ if (testimonialQuotes.length > 0 && testimonialImages.length > 0 && testimonialD
   showTestimonial(0);
 }
 
-const burger = document.querySelector('.burger');
-const navLinksPanel = document.querySelector('.nav-links');
+ScrollTrigger.refresh();
 
-if (burger && navLinksPanel) {
-  burger.addEventListener('click', () => {
-    burger.classList.toggle('open');
-    navLinksPanel.classList.toggle('open');
-  });
-}
+});
 
 
+// const burger = document.querySelector('.burger');
+// const navLinksPanel = document.querySelector('.nav-links');
+
+// if (burger && navLinksPanel) {
+//   burger.addEventListener('click', () => {
+//     burger.classList.toggle('open');
+//     navLinksPanel.classList.toggle('open');
+//   });
+// }

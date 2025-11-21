@@ -1495,18 +1495,34 @@ ul li {
 
 @media (max-width: 968px) {
 
-  nav {
+  /* nav {
     padding: 15px 20px;
     justify-content: space-between;
     align-items: center;
     position: relative;
     z-index: 1000;
-  }
+  } */
+
+  
+.nav-links {
+  display: none;
+  align-items: center;
+}
+
+.nav-links ul {
+  display: none;
+  gap: 35px;
+  list-style-type: none;
+}
 
   .burger {
     display: flex;
   }
 
+  ul {
+    display: none;
+  }
+/* 
   .nav-links {
     position: fixed;
     top: 0;
@@ -1533,7 +1549,7 @@ ul li {
 
   .nav-links .nav-link {
     font-size: 16px;
-  }
+  } */
 
   .hero_inside h1 {
     font-size: 72px;
@@ -1542,7 +1558,6 @@ ul li {
   .categories-wrapper {
     transform: scale(0.6);
   }
-
 
 
   .hero_inside {
